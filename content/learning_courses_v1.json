@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "ruleVersion": 1,
+  "courses": [
+    {
+      "id": "first_week",
+      "title": "출고 첫 주",
+      "displayOrder": 1,
+      "unitIds": [
+        "steering_heat",
+        "hvac_auto",
+        "air_cleaner"
+      ],
+      "releaseScope": "first_submission",
+      "practiceEnabled": true,
+      "unlockRuleId": "initial",
+      "lockedCopy": "지원·실제 값 확인 뒤 주차 중 실습할 수 있어요."
+    },
+    {
+      "id": "rainy_day",
+      "title": "비 오는 날",
+      "displayOrder": 2,
+      "unitIds": [
+        "defroster",
+        "recirculation"
+      ],
+      "releaseScope": "pt_plan",
+      "practiceEnabled": false,
+      "unlockRuleId": "parked_wiper_today",
+      "lockedCopy": "잠김 · 와이퍼 상태와 기능 뜻을 확인한 뒤 준비할 코스예요."
+    },
+    {
+      "id": "winter_summer",
+      "title": "겨울·여름",
+      "displayOrder": 3,
+      "unitIds": [
+        "seat_heat",
+        "seat_vent"
+      ],
+      "releaseScope": "pt_plan",
+      "practiceEnabled": false,
+      "unlockRuleId": "seasonal_unverified",
+      "lockedCopy": "잠김 · 차량 상태·조작 근거 확인 뒤 준비할 코스예요."
+    },
+    {
+      "id": "hidden_features",
+      "title": "숨은 기능",
+      "displayOrder": 4,
+      "unitIds": [],
+      "releaseScope": "pt_plan",
+      "practiceEnabled": false,
+      "unlockRuleId": "hidden_unverified",
+      "lockedCopy": "잠김 · 기능과 출처를 확인하고 있어요."
+    }
+  ],
+  "rules": [
+    {
+      "id": "initial",
+      "conditionKind": "always",
+      "evidenceRequirements": [],
+      "prerequisiteCourseIds": [],
+      "persistencePolicy": "not_applicable"
+    },
+    {
+      "id": "parked_wiper_today",
+      "conditionKind": "parked_wiper_on_today",
+      "evidenceRequirements": [
+        "capability_confirmed",
+        "meaning_verified",
+        "parked_at_observation",
+        "same_evaluation_or_confirmed_reuse",
+        "same_kst_date",
+        "same_vehicle_and_origin"
+      ],
+      "prerequisiteCourseIds": null,
+      "persistencePolicy": "UNDECIDED"
+    },
+    {
+      "id": "seasonal_unverified",
+      "conditionKind": "unverified",
+      "evidenceRequirements": [],
+      "prerequisiteCourseIds": null,
+      "persistencePolicy": "UNDECIDED"
+    },
+    {
+      "id": "hidden_unverified",
+      "conditionKind": "unverified",
+      "evidenceRequirements": [],
+      "prerequisiteCourseIds": null,
+      "persistencePolicy": "UNDECIDED"
+    }
+  ]
+}

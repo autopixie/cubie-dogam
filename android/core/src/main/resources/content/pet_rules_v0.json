@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "stage": {"basicTarget": 3, "assumption": "N=3은 디자인 가정. 지원되는 기본 단원만 목표에 포함하며 0개 지원을 완료로 세지 않음."},
+  "policy": {"explicitStart": true, "initialInactive": true, "firstRewardOnly": true, "noBackgroundObservationAssumption": true, "noDeath": true, "fuelDemoOnly": true, "fuelDemoEnabled": false},
+  "events": [
+    {"id": "welcome", "expression": "calm", "lines": ["안녕. 우리 차에서 하나씩 알아가요.", "오늘 필요한 것부터 살펴볼까요?"], "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "waiting", "expression": "curious", "lines": ["차의 버튼을 직접 눌러 보세요.", "천천히 해도 괜찮아요. 여기서 기다릴게요."], "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "success", "expression": "happy", "lines": ["동작을 확인했어요. 첫 기능 카드가 생겼네요!", "직접 켜 봤네요. 이 차의 카드에 남겨 둘게요."], "growth": 1, "cardId": "feature:{featureId}", "featureIds": ["steering_heat", "seat_heat", "seat_vent", "defroster", "hvac_auto", "air_conditioning", "recirculation", "air_cleaner", "window_lock", "cabin_light"]},
+    {"id": "already_on", "expression": "calm", "lines": ["이미 켜져 있네. 지금은 안내만 볼게요.", "벌써 켜져 있어요. 껐다 켤 필요는 없어요."], "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "repeat", "expression": "calm", "lines": ["다시 동작을 확인했어요. 카드는 그대로예요.", "이 기능 카드는 이미 있어요. 더 쌓이지는 않아요."], "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "locked", "expression": "sleep", "lines": ["주행 중에는 쉬어요.", "주차한 뒤 다시 만나요."], "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "parking", "expression": "calm", "lines": ["주차 기록이 한 장 생겼어요.", "함께한 시간을 짧게 남겨 봤어요."], "growth": 0, "cardId": "memory:parking", "featureIds": []},
+    {"id": "tpms_on", "expression": "concerned", "lines": ["계기판 안내를 먼저 살펴봐 주세요.", "필요하면 점검받아 주세요. 안내를 함께 볼게요."], "meaning": "타이어 공기압 표시가 켜졌어요. 공기압이나 감지 장치 상태를 확인해야 할 수 있어요.", "action": "안전하게 주차한 상태에서 계기판 안내와 이 차의 설명서를 확인하고, 필요하면 점검받아 주세요.", "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "tpms_blink", "expression": "concerned", "lines": ["표시가 깜빡이고 있어요. 설명서를 확인해 주세요.", "원인을 단정하지 않고 확인할 일을 안내할게요."], "meaning": "타이어 공기압 표시가 깜빡이고 있어요. 감지 장치 이상 여부를 확인해야 할 수 있어요.", "action": "계기판의 표시 순서와 이 차의 설명서를 확인하고, 필요하면 점검받아 주세요.", "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "fuel_increase", "expression": "happy", "lines": ["시연용 값이 바뀌었어요.", "이 값은 시연용이에요."], "growth": 0, "cardId": null, "featureIds": []},
+    {"id": "place", "expression": "happy", "lines": ["시연용 장소 카드가 생겼어요.", "함께 모을 장소 카드를 미리 살펴봐요."], "growth": 0, "cardId": "place:{placeId}", "featureIds": []},
+    {"id": "companion", "expression": "happy", "lines": ["기본 기능을 함께 살펴봤네요. 이제 추억도 모아 봐요.", "필요할 때 기능을 다시 보고, 우리 차의 기록도 함께 봐요."], "growth": 0, "cardId": null, "featureIds": []}
+  ],
+  "warningSource": "https://ownersmanual.hyundai.com/full_webhelp/DN8/2026/ko_KR/idefa1f466587.html",
+  "warningScope": "DN8 2026 설명서를 참고한 일반 안내 시안. 대상 차종·표시 enum·초기 점등 검수 전이며 원인·수리 완료를 판단하지 않음."
+}

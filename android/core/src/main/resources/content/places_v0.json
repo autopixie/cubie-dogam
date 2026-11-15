@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "origin": "demo",
+  "badge": "시연용",
+  "defaultEnabled": false,
+  "notice": "실제 위치를 읽지 않는 장소 카드 시안. 일반 표현만 사용하며 실제 방문을 뜻하지 않음.",
+  "templates": [
+    {"id": "first_rest_stop", "name": "처음 간 휴게소", "description": "잠깐 쉬어 가는 시간을 담은 카드예요.", "motif": "rest"},
+    {"id": "sea_view", "name": "바다가 보이는 곳", "description": "탁 트인 풍경을 담아 둘 카드예요.", "motif": "wave"},
+    {"id": "quiet_path", "name": "조용한 산책길", "description": "걷고 싶은 길을 기억하는 카드예요.", "motif": "leaf"}
+  ],
+  "source": ["https://document.pleos.ai/en/docs/pleos-only/connect-sdk-pleos/FusedLocation/intro", "https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/destinations"],
+  "unresolved": "isSupported·최신성·주차 조건·목적지 정보·에뮬레이터 재현 [확인 필요]. 목적지 설정만으로 방문 카드를 만들지 않음."
+}

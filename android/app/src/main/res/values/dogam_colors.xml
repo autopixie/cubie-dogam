@@ -1,0 +1,23 @@
+<resources>
+    <!-- Approved binder mock tokens; independent of a previously saved legacy light setting. -->
+    <color name="dogam_bg">#0D0F12</color>
+    <color name="dogam_cell">#16191E</color>
+    <color name="dogam_found">#1F2329</color>
+    <color name="dogam_text">#F3F4F6</color>
+    <color name="dogam_secondary">#A3AAB4</color>
+    <color name="dogam_muted">#8B939E</color>
+    <color name="dogam_blue">#5B9BFF</color>
+    <color name="dogam_separator">#2A2F36</color>
+    <color name="dogam_card_line">#3A414B</color>
+    <color name="dogam_silhouette">#2A2F36</color>
+    <color name="dogam_unknown">#5B636E</color>
+    <color name="dogam_winter">#CFE3FF</color>
+    <color name="dogam_silver">#E7EBF0</color>
+    <color name="dogam_warning">#FFB547</color>
+    <color name="dogam_dim">#9E000000</color>
+    <color name="dogam_art_peach">#F2A37B</color>
+    <color name="dogam_art_teal">#9FD9D2</color>
+    <color name="dogam_art_cushion">#F2B49A</color>
+    <color name="dogam_art_face">#222222</color>
+    <color name="dogam_art_cheek">#B3F4A9A0</color>
+</resources>

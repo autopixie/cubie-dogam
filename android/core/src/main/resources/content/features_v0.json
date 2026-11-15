@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "targetVehicle": "[확인 필요]",
+  "notice": "설명과 조작 위치는 대상 차종의 공식 설명서와 대조한 뒤 구현한다.",
+  "features": [
+    {
+      "id": "steering_heat", "name": "핸들 열선", "basic": true,
+      "introduceWhen": "P이고 지원되는 기능이며 사용자가 손을 따뜻하게 하고 싶을 때",
+      "description": "핸들을 따뜻하게 하는 기능이에요.",
+      "instruction": "화면 아래 즐겨찾기나 공조 화면에서 핸들 열선 버튼을 눌러 보세요.",
+      "signal": {"domain": "SteeringWheel", "change": "Off → Low 이상", "api": ["checkHvacSteeringWheelHeatCapabilities", "getHvacSteeringWheelHeatState", "registerHvacSteeringWheelHeatState"], "consoleCard": "Steering Wheel Heat", "inactiveLabel": "Off", "activeLabel": "켜짐 (꺼짐 외 지원 단계)", "area": "steering"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/steering-wheel/entry"],
+      "vehicleManual": "디 올 뉴 아반떼 2027 취급설명서 · 핸들 온열 사용하기 · https://ownersmanual.hyundai.com/full_webhelp/CN8/2027/ko_KR/convenience-use_steering_wheel-use_steering_wheel_heater.html"
+    },
+    {
+      "id": "seat_heat", "name": "좌석 열선", "basic": false,
+      "introduceWhen": "P이고 해당 좌석이 지원되며 사용자가 따뜻한 좌석을 원할 때",
+      "description": "선택한 좌석을 따뜻하게 해 줘요.",
+      "instruction": "실습 시작을 누른 뒤, 차에서 선택한 좌석의 열선을 직접 켜 보세요.",
+      "signal": {"domain": "Seat", "change": "선택 좌석 Off → Heat", "api": ["checkSeatTemperatureCapabilities", "getHvacSeatTemperature", "registerHvacSeatTemperature"], "consoleCard": "Seat Temperature", "inactiveLabel": "Off", "activeLabel": "Heat (시연 정규화)", "area": "front_left"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/seat/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 단계·주의사항 대조"
+    },
+    {
+      "id": "seat_vent", "name": "좌석 통풍", "basic": false,
+      "introduceWhen": "P이고 해당 좌석이 지원되며 사용자가 통풍을 원할 때",
+      "description": "좌석에서 바람이 나오도록 하는 기능이에요.",
+      "instruction": "실습 시작을 누른 뒤, 차에서 선택한 좌석의 통풍을 직접 켜 보세요.",
+      "signal": {"domain": "Seat", "change": "선택 좌석 Off → Ventilation", "api": ["checkSeatVentilationCapabilities", "getHvacSeatVentilationState", "registerHvacSeatVentilation"], "consoleCard": "Seat Temperature", "inactiveLabel": "Off", "activeLabel": "Ventilation (시연 정규화)", "area": "front_left"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/seat/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 열선과의 전환·주의사항 대조"
+    },
+    {
+      "id": "defroster", "name": "성에 제거", "basic": false,
+      "introduceWhen": "P이고 전면 영역이 지원되며 사용자가 유리 관리 기능을 살펴보고 싶을 때",
+      "description": "유리의 성에나 습기를 제거할 때 쓰는 기능이에요.",
+      "instruction": "실습 시작을 누른 뒤, 차의 전면 성에 제거 기능을 직접 켜 보세요.",
+      "signal": {"domain": "HVAC", "change": "전면 Off → On", "api": ["checkHvacDefrosterCapabilities", "getHvacDefrosterState", "registerHvacDefrosterState"], "consoleCard": "Defroster", "inactiveLabel": "Off", "activeLabel": "On", "area": "front"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 전면·후면 조작 대조"
+    },
+    {
+      "id": "hvac_auto", "name": "자동 공조", "basic": true,
+      "introduceWhen": "P이고 지원되며 사용자가 실내 온도 조절을 살펴보고 싶을 때",
+      "description": "설정한 온도에 맞춰 공조를 자동으로 조절하는 기능이에요.",
+      "instruction": "실습 시작을 누른 뒤, 차의 공조 화면에서 AUTO를 직접 눌러 보세요.",
+      "signal": {"domain": "HVAC", "change": "Off → On", "api": ["checkHvacAutoCapabilities", "getHvacAutoState", "registerHvacAutoState"], "consoleCard": "HVAC Auto", "inactiveLabel": "Off", "activeLabel": "On", "area": "cabin"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 AUTO 조작 대조"
+    },
+    {
+      "id": "air_conditioning", "name": "에어컨", "basic": false,
+      "introduceWhen": "P이고 지원되며 사용자가 공조 기능을 살펴보고 싶을 때",
+      "description": "실내 공기를 시원하게 하거나 습기를 줄일 때 쓰는 기능이에요.",
+      "instruction": "실습 시작을 누른 뒤, 차의 공조 화면에서 A/C를 직접 켜 보세요.",
+      "signal": {"domain": "HVAC", "change": "Off → On", "api": ["checkHvacAcCapabilities", "getHvacAcState", "registerHvacAcState"], "consoleCard": "Air Conditioning", "inactiveLabel": "Off", "activeLabel": "On", "area": "cabin"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 A/C 조작 대조"
+    },
+    {
+      "id": "recirculation", "name": "내기순환", "basic": false,
+      "introduceWhen": "P이고 지원되며 사용자가 공기 순환 선택을 알고 싶을 때",
+      "description": "차 안의 공기를 순환시키는 모드예요. 계속 유지하라고 권하는 기능은 아니에요.",
+      "instruction": "실습 시작을 누른 뒤, 차에서 내기순환을 직접 선택해 보세요. 사용 조건은 차량 설명서를 따라 주세요.",
+      "signal": {"domain": "HVAC", "change": "Fresh → Recirculate", "api": ["checkHvacRecirculationCapabilities", "getHvacRecirculationState", "registerHvacRecirculationState"], "consoleCard": "Air Recirculation", "inactiveLabel": "Fresh", "activeLabel": "Recirculate", "area": "cabin"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 사용 조건·주의사항 대조"
+    },
+    {
+      "id": "air_cleaner", "name": "공기 청정", "basic": false,
+      "introduceWhen": "P이고 지원되며 사용자가 공기 청정 기능을 살펴보고 싶을 때",
+      "description": "차에 있는 공기 청정 기능을 켜는 방법을 살펴봐요.",
+      "instruction": "실습 시작을 누른 뒤, 차의 공기 청정 기능을 직접 켜 보세요.",
+      "signal": {"domain": "HVAC", "change": "Off → On", "api": ["checkHvacAirCleanerCapabilities", "getHvacAirCleanerState", "registerHvacAirCleanerState"], "consoleCard": "Air Cleaner", "inactiveLabel": "Off", "activeLabel": "On", "area": "cabin"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 조작 대조. 공기질 개선 측정 주장 없음"
+    },
+    {
+      "id": "window_lock", "name": "뒷좌석 창문 잠금", "basic": false,
+      "introduceWhen": "P이고 뒷좌석 창문 잠금이 지원되며 사용자가 기능을 알고 싶을 때",
+      "description": "뒷좌석에서 창문을 조작하지 못하도록 잠그는 기능이에요.",
+      "instruction": "실습 시작을 누른 뒤, 차의 창문 잠금 버튼을 직접 눌러 보세요. 도어 잠금과는 다른 기능이에요.",
+      "signal": {"domain": "Window", "change": "뒷좌석 Unlock → Lock", "api": ["checkWindowLockCapabilities", "getCurrentWindowLockState", "registerWindowLockState"], "consoleCard": "Window Lock", "inactiveLabel": "Unlock", "activeLabel": "Lock", "area": "rear"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/window/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 버튼·잠금 범위 대조"
+    },
+    {
+      "id": "cabin_light", "name": "실내등", "basic": true,
+      "introduceWhen": "P이고 지원되며 사용자가 실내등 조작을 살펴보고 싶을 때",
+      "description": "차 안을 밝히는 실내등을 살펴봐요.",
+      "instruction": "실습 시작을 누른 뒤, 차의 실내등 스위치를 직접 켜 보세요. 문이 열려 자동으로 켜진 상태와 구별해 주세요.",
+      "signal": {"domain": "Light", "change": "Off → On", "api": ["checkCabinLightStateCapabilities", "getCurrentCabinLightState", "registerCabinLightState"], "consoleCard": "Cabin Lights Switch", "inactiveLabel": "Off", "activeLabel": "On", "area": "cabin"},
+      "source": ["https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/light/entry"],
+      "vehicleManual": "[출처 필요] 대상 차종 확정 후 자동 점등·스위치 대조"
+    }
+  ]
+}

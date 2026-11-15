@@ -1,0 +1,10 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">@font/asta_sans</item>
+        <item name="android:textAppearance">@style/UpetBody</item>
+        <item name="android:colorAccent">@color/upet_accent</item>
+        <item name="android:colorBackground">@color/upet_bg</item>
+        <item name="android:windowBackground">@color/upet_bg</item>
+        <item name="android:colorControlNormal">@color/upet_text_2</item>
+    </style>
+</resources>

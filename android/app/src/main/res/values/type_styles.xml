@@ -1,0 +1,27 @@
+<resources>
+    <style name="UpetDisplay" parent="android:style/TextAppearance.Material.Body1">
+        <item name="android:textSize">@dimen/upet_type_display</item>
+        <item name="android:fontFamily">@font/asta_sans_bold</item>
+        <item name="android:textColor">@color/upet_text_1</item>
+    </style>
+    <style name="UpetTitle" parent="android:style/TextAppearance.Material.Body1">
+        <item name="android:textSize">@dimen/upet_type_title</item>
+        <item name="android:fontFamily">@font/asta_sans_bold</item>
+        <item name="android:textColor">@color/upet_text_1</item>
+    </style>
+    <style name="UpetBody" parent="android:style/TextAppearance.Material.Body1">
+        <item name="android:textSize">@dimen/upet_type_body</item>
+        <item name="android:fontFamily">@font/asta_sans</item>
+        <item name="android:textColor">@color/upet_text_1</item>
+    </style>
+    <style name="UpetLabel" parent="android:style/TextAppearance.Material.Body1">
+        <item name="android:textSize">@dimen/upet_type_label</item>
+        <item name="android:fontFamily">@font/asta_sans_semibold</item>
+        <item name="android:textColor">@color/upet_text_1</item>
+    </style>
+    <style name="UpetSmall" parent="android:style/TextAppearance.Material.Body1">
+        <item name="android:textSize">@dimen/upet_type_small</item>
+        <item name="android:fontFamily">@font/asta_sans</item>
+        <item name="android:textColor">@color/upet_text_1</item>
+    </style>
+</resources>

@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "cards": [
+    {
+      "id": "steering_heat",
+      "model": null,
+      "name": "핸들 열선",
+      "aliases": [
+        "운전대 열선",
+        "스티어링 휠 열선",
+        "핸들 온열"
+      ],
+      "location": "공조 화면(앱스 › CLIMATE)의 핸들 열선 버튼. 화면 아래 즐겨찾기에 있으면 바로 누를 수 있어요",
+      "operation": "누를 때마다 2단(강) → 1단(약) → 꺼짐 순서로 바뀌어요.",
+      "goodWhen": "손이 차가운 아침, 출발 전에",
+      "caution": "버튼은 사용자가 직접 눌러요. 실제 지원·매핑·준비 확인이 필요해요.",
+      "practiceId": "steering_heat",
+      "locationSource": {
+        "kind": "owners_manual",
+        "url": "https://ownersmanual.hyundai.com/full_webhelp/CN8/2027/ko_KR/convenience-use_steering_wheel-use_steering_wheel_heater.html",
+        "section": "핸들 온열 사용하기",
+        "model": "디 올 뉴 아반떼 2027 취급설명서",
+        "verified": "2026-11-12"
+      },
+      "operationSource": {
+        "kind": "owners_manual",
+        "url": "https://ownersmanual.hyundai.com/full_webhelp/CN8/2027/ko_KR/convenience-use_steering_wheel-use_steering_wheel_heater.html",
+        "section": "핸들 온열 사용하기",
+        "model": "디 올 뉴 아반떼 2027 취급설명서",
+        "verified": "2026-11-12"
+      },
+      "sources": [
+        {
+          "url": "https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/steering-wheel/entry",
+          "section": "SteeringWheel capability/get/register (API 근거, 실차 위치 근거 아님)"
+        },
+        {
+          "kind": "owners_manual",
+          "url": "https://ownersmanual.hyundai.com/full_webhelp/CN8/2027/ko_KR/convenience-use_steering_wheel-use_steering_wheel_heater.html",
+          "section": "핸들 온열 사용하기",
+          "model": "디 올 뉴 아반떼 2027 취급설명서",
+          "verified": "2026-11-12"
+        },
+        {
+          "kind": "pleos_screen",
+          "section": "Pleos Connect 에뮬레이터 v2.1 아래 공조 막대(운전석 쪽) 화면 확인 2026-11-11",
+          "url": "https://www.hyundaimotorgroup.com/ko/story/pleos-connect-next-generation-infotainment-system",
+          "verified": "2026-11-12"
+        }
+      ],
+      "manualAnswer": "취급설명서 기준으로 공조 화면(앱스 › CLIMATE)에서 핸들 열선 버튼을 누르면 켜져요. 누를 때마다 2단 → 1단 → 꺼짐 순서예요. 화면 아래 즐겨찾기에 있으면 바로 누를 수 있어요."
+    },
+    {
+      "id": "hvac_auto",
+      "model": null,
+      "name": "자동 공조",
+      "aliases": [
+        "공조 자동 모드",
+        "AUTO 공조"
+      ],
+      "location": "",
+      "operation": "",
+      "goodWhen": "주차 중 사용법을 익히고 싶을 때",
+      "caution": "실제 Off/On 의미가 검증되기 전에는 실습할 수 없어요.",
+      "practiceId": "hvac_auto",
+      "locationSource": null,
+      "operationSource": null,
+      "sources": [
+        {
+          "url": "https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry",
+          "section": "HVAC Auto capability/get/register (API 근거)"
+        }
+      ]
+    },
+    {
+      "id": "air_cleaner",
+      "model": null,
+      "name": "공기 청정",
+      "aliases": [
+        "공기 청정 기능",
+        "공기청정기"
+      ],
+      "location": "",
+      "operation": "",
+      "goodWhen": "주차 중 사용법을 익히고 싶을 때",
+      "caution": "공기질·건강 효과·고장 원인을 판정하지 않아요.",
+      "practiceId": "air_cleaner",
+      "locationSource": null,
+      "operationSource": null,
+      "sources": [
+        {
+          "url": "https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/vehicle/ai.pleos.playground.vehicle.api/h-v-a-c/entry",
+          "section": "HVAC AirCleaner capability/get/register (API 근거)"
+        }
+      ]
+    },
+    {
+      "id": "seat_heat_vent",
+      "model": "더 뉴 그랜저",
+      "name": "좌석 열선·통풍",
+      "aliases": [
+        "좌석 열선",
+        "시트 열선",
+        "엉뜨",
+        "통풍 시트",
+        "좌석 통풍"
+      ],
+      "location": "중앙 에어벤트 아래 물리 버튼",
+      "operation": "",
+      "goodWhen": "주차 중 좌석 기능의 위치를 알아보고 싶을 때",
+      "caution": "더 뉴 그랜저 자료 기준입니다. 이 차의 사양과 자세한 사용법은 사용설명서를 확인해 주세요.",
+      "practiceId": null,
+      "referenceOnly": true,
+      "locationSource": {
+        "url": "https://www.hyundaimotorgroup.com/ko/story/the-new-grandeur-innovative-interior-technology",
+        "section": "공조 UX를 새롭게 정의한 전동식 에어벤트 · 17인치 디스플레이/물리 버튼 문단 (HTML, 쪽 없음)",
+        "date": "2026-07-09",
+        "verified": "2026-11-01",
+        "kind": "vehicle_controls"
+      },
+      "operationSource": null,
+      "sources": [
+        {
+          "url": "https://www.hyundaimotorgroup.com/ko/story/the-new-grandeur-innovative-interior-technology",
+          "section": "공조 UX를 새롭게 정의한 전동식 에어벤트 · 17인치 디스플레이/물리 버튼 문단 (HTML, 쪽 없음)",
+          "date": "2026-07-09",
+          "verified": "2026-11-01",
+          "kind": "vehicle_controls"
+        }
+      ]
+    },
+    {
+      "id": "climate_screen",
+      "model": "더 뉴 그랜저",
+      "name": "1열 공조 화면",
+      "aliases": [
+        "공조 화면",
+        "1열 공조",
+        "에어컨 조절",
+        "풍향 조절"
+      ],
+      "location": "17인치 디스플레이의 공조 기능",
+      "operation": "",
+      "goodWhen": "주차 중 1열 공조 화면의 위치를 알아보고 싶을 때",
+      "caution": "더 뉴 그랜저 자료 기준입니다. AUTO/공기 청정 버튼 위치로 확대하지 않아요.",
+      "practiceId": null,
+      "referenceOnly": true,
+      "locationSource": {
+        "url": "https://www.hyundaimotorgroup.com/ko/story/the-new-grandeur-innovative-interior-technology",
+        "section": "공조 UX를 새롭게 정의한 전동식 에어벤트 · 17인치 디스플레이/물리 버튼 문단 (HTML, 쪽 없음)",
+        "date": "2026-07-09",
+        "verified": "2026-11-01",
+        "kind": "vehicle_controls"
+      },
+      "operationSource": null,
+      "sources": [
+        {
+          "url": "https://www.hyundaimotorgroup.com/ko/story/the-new-grandeur-innovative-interior-technology",
+          "section": "공조 UX를 새롭게 정의한 전동식 에어벤트 · 17인치 디스플레이/물리 버튼 문단 (HTML, 쪽 없음)",
+          "date": "2026-07-09",
+          "verified": "2026-11-01",
+          "kind": "vehicle_controls"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="upet_type_display">56sp</dimen>
+    <dimen name="upet_type_title">44sp</dimen>
+    <dimen name="upet_type_body">32sp</dimen>
+    <dimen name="upet_type_label">24sp</dimen>
+    <dimen name="upet_type_small">22sp</dimen>
+    <dimen name="upet_type_app_name">40sp</dimen>
+    <dimen name="upet_type_app_subtitle">26sp</dimen>
+    <dimen name="upet_type_button_primary">32sp</dimen>
+    <dimen name="upet_type_button_secondary">28sp</dimen>
+    <dimen name="upet_button_primary_height">104dp</dimen>
+    <dimen name="upet_button_secondary_height">88dp</dimen>
+</resources>

@@ -1,0 +1,938 @@
+{
+ "schemaVersion": 1,
+ "title": "큐비 도감",
+ "generated": "2026-11-13",
+ "types": {
+  "warm": "따뜻함",
+  "wind": "바람",
+  "clear": "맑음",
+  "light": "빛",
+  "drive": "달림",
+  "key": "열쇠",
+  "eye": "눈"
+ },
+ "rules": {
+  "discover": "앱이 화면 앞에 있고 P·주행 제한 없음일 때, 지원되는 카드 기능의 상태가 '꺼짐 → 켜짐'으로 바뀌는 것을 받으면 발견(실루엣을 누르지 않아도 됨). 앱을 열 때 이미 켜져 있던 것은 발견 아님. 같은 카드 반복 = 보상 0. 계절 변형은 해당 계절에 처음 한 번.",
+  "unsupported": "capability 미지원 카드는 바인더에서 숨기고 완성률 분모에서 뺀다.",
+  "reserved": "reserved 칸은 번호와 물음표만(「곧 만날 친구」). 1차 = 001~100 칸 표시.",
+  "growth": "큐비 잎: 처음 1장 → 카드 1장째 2장 → 카드 4장째 4장(기존 3단계 그림 재사용).",
+  "quiz": "3지선다. 맞히면 카드(은색 테두리), 틀리면 hint 없이 '다시 해 봐요'(다음 시도 가능). 네트워크 0."
+ },
+ "cards": [
+  {
+   "no": 1,
+   "id": "steering_heat",
+   "kind": "car",
+   "name": "따끈이",
+   "type": "warm",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkHvacSteeringWheelHeatCapabilities",
+    "get": "getHvacSteeringWheelHeatState",
+    "register": "registerHvacSteeringWheelHeatState"
+   },
+   "discover": "꺼짐(확인된 Off) → 꺼짐이 아닌 지원 범위 값(1단·2단). 보충10c 추가2 HeaterEvidence 그대로",
+   "riddle": "추운 아침, 손이 닿는 둥근 곳에 숨어 살아요.",
+   "hint2": "공조 화면(앱스 › CLIMATE) 어딘가",
+   "back": {
+    "where": "공조 화면(앱스 › CLIMATE)의 핸들 온열 버튼",
+    "how": "누를 때마다 2단(강) → 1단(약) → 꺼짐 순서로 바뀌어요. 2단은 30분 뒤 1단으로 내려가요.",
+    "goodDay": "손이 차가운 아침, 출발 전에",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/convenience-use_steering_wheel-use_steering_wheel_heater.html",
+     "section": "핸들 온열 사용하기",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": {
+    "name": "겨울 따끈이",
+    "rarity": 2,
+    "months": [
+     12,
+     1,
+     2,
+     11
+    ],
+    "rule": "11~2월에 처음 만나면 겨울 테두리 + 날짜 도장"
+   },
+   "active1st": true
+  },
+  {
+   "no": 2,
+   "id": "hvac_auto",
+   "kind": "car",
+   "name": "척척이",
+   "type": "wind",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkHvacAutoCapabilities",
+    "get": "getHvacAutoState",
+    "register": "registerHvacAutoState"
+   },
+   "discover": "AUTO 꺼짐 → 켜짐",
+   "riddle": "온도만 알려 주면 바람을 알아서 척척 맞춰요.",
+   "hint2": "공조 화면의 글자 네 개짜리 버튼",
+   "back": {
+    "where": "공조 화면의 AUTO(전자동 조절) 버튼",
+    "how": "누르면 설정 온도에 맞춰 바람을 알아서 조절해요. 다시 누를 때마다 바람 세기가 바뀌어요.",
+    "goodDay": "계절과 상관없이 실내를 쾌적하게 두고 싶을 때(권장 22℃)",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/convenience-auto_climate_ctrl-ctrl_in_auto_mode.html",
+     "section": "전자동(AUTO)으로 조절하기",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "active1st": true
+  },
+  {
+   "no": 3,
+   "id": "air_cleaner",
+   "kind": "car",
+   "name": "먼지먹보",
+   "type": "clear",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkHvacAirCleanerCapabilities",
+    "get": "getHvacAirCleanerState",
+    "register": "registerHvacAirCleanerState"
+   },
+   "discover": "공기청정 꺼짐 → 켜짐",
+   "riddle": "미세 먼지 많은 날이면 배가 고파져요.",
+   "hint2": "차량 설정 › 공조 안쪽",
+   "back": {
+    "where": "차량 설정 › 공조 › 외부 공기 차단 › 공기청정 연동",
+    "how": "켜 두면 미세 먼지 센서가 실내 농도를 보고 필요할 때 바깥 공기를 막고, 실내 공기를 필터로 순환해요. 공조 화면에 공기 상태가 좋음·보통·나쁨·매우 나쁨 4단계로 보여요.",
+    "goodDay": "미세 먼지가 많은 날",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/topic_ryq_phy_y3c.html",
+     "section": "공기청정 모드 설정하기",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "active1st": true
+  },
+  {
+   "no": 4,
+   "id": "seat_heat",
+   "kind": "car",
+   "name": "엉뜨",
+   "type": "warm",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkSeatTemperatureCapabilities",
+    "get": "getHvacSeatTemperature",
+    "register": "(표면 파일에서 대응 register 확인)"
+   },
+   "discover": "운전석 좌석 열선 0 → 1 이상(값 범위는 에뮬레이터 실측으로 확정)",
+   "riddle": "앉으면 아래에서 따뜻하게 받쳐 줘요.",
+   "hint2": "앞좌석 스위치 또는 공조 화면 FRONT",
+   "back": {
+    "where": "앞좌석 온열/통풍 스위치(올리기) 또는 공조 화면 위 FRONT › 좌석 옆 온열 버튼",
+    "how": "올리거나 누를 때마다 강 → 중 → 약 → 꺼짐. 앞좌석 온열을 켜면 콘솔 암레스트 열선도 함께 켜져요.",
+    "goodDay": "추운 날 히터와 함께",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/safety-use_seat_heat_vent-seat_heating.html",
+     "section": "좌석 온열",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "active1st": true
+  },
+  {
+   "no": 5,
+   "id": "seat_vent",
+   "kind": "car",
+   "name": "산들이",
+   "type": "wind",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkSeatVentilationCapabilities",
+    "get": "getHvacSeatVentilationState",
+    "register": "(표면 파일에서 대응 register 확인)"
+   },
+   "discover": "운전석 좌석 통풍 0 → 1 이상",
+   "riddle": "더운 날 등 뒤에서 살랑살랑 바람을 불어 줘요.",
+   "hint2": "엉뜨와 같은 스위치를 반대로",
+   "back": {
+    "where": "앞좌석 온열/통풍 스위치(내리기) 또는 공조 화면 위 FRONT › 좌석 옆 통풍 버튼",
+    "how": "내리거나 누를 때마다 강 → 중 → 약 → 꺼짐. 켠 뒤 3~5분이면 시원해져요.",
+    "goodDay": "더운 날 에어컨과 함께",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/safety-use_seat_heat_vent-seat_vent.html",
+     "section": "좌석 통풍",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "active1st": true
+  },
+  {
+   "no": 6,
+   "id": "front_defog",
+   "kind": "car",
+   "name": "서리깨비",
+   "type": "wind",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkHvacDefrosterCapabilities 또는 checkHvacMaxDefrostCapabilities",
+    "get": "getHvacDefrosterState / getHvacMaxDefrostState",
+    "register": "대응 register"
+   },
+   "discover": "앞유리 성에 제거 꺼짐 → 켜짐(앞유리에 해당하는 값인지 에뮬레이터에서 확인)",
+   "riddle": "유리에 김이 서리면 후 불어 지워 줘요.",
+   "hint2": "공조 화면, 앞유리 그림 버튼",
+   "back": {
+    "where": "공조 화면의 앞유리 습기 제거 버튼",
+    "how": "누르면 바깥 공기를 들이고, 바깥 온도에 따라 에어컨도 함께 돌아요. 빨리 없애려면 바람을 가장 세게 해요.",
+    "goodDay": "비 오는 날이나 추운 아침",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/convenience-window_defog_defrost-remove_window_fog_auto.html",
+     "section": "앞유리 습기 자동으로 제거하기",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "active1st": true
+  },
+  {
+   "no": 7,
+   "id": "cabin_light",
+   "kind": "car",
+   "name": "등불이",
+   "type": "light",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkCabinLightStateCapabilities",
+    "get": "getCurrentCabinLightState",
+    "register": "대응 register"
+   },
+   "discover": "실내등 꺼짐 → 켜짐",
+   "riddle": "어두울 때 머리 위에서 반짝 켜져요.",
+   "hint2": "차량 설정 › 라이트 또는 천장",
+   "back": {
+    "where": "차량 설정 › 라이트(앞좌석·뒷좌석 램프), 또는 천장의 램프 스위치",
+    "how": "설정에서 앞좌석·뒷좌석 램프를 각각 켜고 끌 수 있어요. 맵 램프는 위쪽 가이드를 터치하면 켜지고, 한 번 더 터치하면 꺼져요.",
+    "goodDay": "어두운 곳에서 물건을 찾을 때(주행 중에는 꺼 두기)",
+    "note": "시동을 끈 채 오래 켜 두면 배터리가 방전될 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/convenience-interior_lights-front_seat_lamp.html",
+     "section": "실내등 켜기/끄기",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "active1st": true
+  },
+  {
+   "no": 8,
+   "id": "drive_mode",
+   "kind": "car",
+   "name": "기분이",
+   "type": "drive",
+   "rarity": 1,
+   "sdk": {
+    "capability": "checkDrivingModeStateCapabilities",
+    "get": "getCurrentDrivingModeState",
+    "register": "대응 register"
+   },
+   "discover": "드라이브 모드 값이 앱을 연 뒤 바뀜(NORMAL 외 모드로)",
+   "riddle": "기분에 따라 모습이 바뀌어요. 아끼는 날, 신나는 날.",
+   "hint2": "핸들 근처 DRIVE MODE 버튼",
+   "back": {
+    "where": "DRIVE MODE 버튼",
+    "how": "누를 때마다 NORMAL·ECO·SPORT 등에서 골라요. MY 모드는 원하는 대로 맞출 수 있어요.",
+    "goodDay": "연비를 아끼거나 경쾌하게 달리고 싶을 때",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/driving-integ_drive_mode_sys-set_drive_mode.html",
+     "section": "드라이브 모드(Drive Mode) 설정",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "active1st": true
+  },
+  {
+   "no": 9,
+   "id": "side_mirror_heat",
+   "kind": "car",
+   "name": "거울새",
+   "type": "warm",
+   "rarity": 1,
+   "backup": true,
+   "active1st": false,
+   "sdk": {
+    "capability": "checkHvacSideMirrorHeatCapabilities",
+    "get": "getHvacSideMirrorHeatState",
+    "register": "대응 register"
+   },
+   "discover": "사이드미러 열선 꺼짐 → 켜짐",
+   "riddle": "양쪽 귀에 낀 서리를 녹여 줘요.",
+   "hint2": "공조 화면, 뒷유리 그림 버튼과 같이 움직여요",
+   "back": {
+    "where": "공조 화면의 뒷유리 습기 제거 버튼",
+    "how": "시동을 건 상태에서 뒷유리 습기 제거 버튼을 누르면 사이드 미러 열선도 함께 켜져요.",
+    "goodDay": "사이드 미러에 김이나 성에가 꼈을 때",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/convenience-heating_feat-remove_ext_mirror_frost.html",
+     "section": "사이드 미러 습기 제거하기",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "seasonVariant": null,
+   "useIf": "004~008 가운데 에뮬레이터 미지원 카드가 있을 때 대신 활성"
+  },
+  {
+   "no": 10,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 11,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 12,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 13,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 14,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 15,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 16,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 17,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 18,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 19,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 20,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 21,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 22,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 23,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 24,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 25,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 26,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 27,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 28,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 29,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 30,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 31,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 32,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 33,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 34,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 35,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 36,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 37,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 38,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 39,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 40,
+   "kind": "car",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 41,
+   "id": "smart_trunk",
+   "kind": "quiz",
+   "name": "느긋이",
+   "type": "key",
+   "rarity": 1,
+   "quiz": {
+    "q": "문을 다 잠그고 스마트 키를 가진 채 트렁크 뒤에 서 있으면 트렁크가 열려요. 얼마나 기다려야 할까요?",
+    "choices": [
+     "1초",
+     "3초 넘게",
+     "30초"
+    ],
+    "answer": 1
+   },
+   "back": {
+    "where": "차량 설정 › 잠금/여닫기 › 스마트 트렁크",
+    "how": "켜 두면 문을 다 잠그고 15초 뒤, 스마트 키를 갖고 트렁크 뒤 50~100 cm에 3초 넘게 서 있으면 열려요.",
+    "goodDay": "양손에 짐을 들었을 때",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/idb7cfdbe0a82.html",
+     "section": "스마트 트렁크 작동 방법",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "riddle": "설명서 퀴즈를 맞히면 나타나요.",
+   "active1st": true
+  },
+  {
+   "no": 42,
+   "id": "remote_start",
+   "kind": "quiz",
+   "name": "부릉이",
+   "type": "key",
+   "rarity": 1,
+   "quiz": {
+    "q": "스마트 키로 원격 시동을 걸 때, 도어 잠금 버튼을 누르고 몇 초 안에 원격 시동 버튼을 길게 눌러야 할까요?",
+    "choices": [
+     "4초",
+     "30초",
+     "1분"
+    ],
+    "answer": 0
+   },
+   "back": {
+    "where": "스마트 키의 원격 시동 버튼",
+    "how": "차에서 10 m 안에서 도어 잠금 버튼을 누르고, 4초 안에 원격 시동 버튼을 길게 눌러요. 10분 안에 타지 않으면 꺼져요.",
+    "goodDay": "타기 전에 미리 실내를 데우거나 식힐 때",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/convenience-use_smart_key-remote_engine_start.html",
+     "section": "원격 시동 작동하기",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "riddle": "설명서 퀴즈를 맞히면 나타나요.",
+   "active1st": true
+  },
+  {
+   "no": 43,
+   "id": "wireless_charge",
+   "kind": "quiz",
+   "name": "찌릿이",
+   "type": "key",
+   "rarity": 1,
+   "quiz": {
+    "q": "맥세이프 호환(Qi2) 무선 충전은 어느 패드에서 될까요?",
+    "choices": [
+     "운전석 쪽",
+     "동승석 쪽",
+     "둘 다"
+    ],
+    "answer": 0
+   },
+   "back": {
+    "where": "중앙 콘솔 무선 충전 패드 · 차량 설정 › 편의 › 휴대기기용 무선 충전 시스템",
+    "how": "설정에서 운전석·동승석을 켠 뒤 휴대폰을 패드 가운데에 올려요. 맥세이프 호환(Qi2)은 운전석 쪽 패드에서만 돼요.",
+    "goodDay": "선 없이 휴대폰을 충전하고 싶을 때",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/convenience-use_interior_convenience_feat-smartphone_wireless_chg_sys.html",
+     "section": "스마트폰 무선 충전 시스템",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "riddle": "설명서 퀴즈를 맞히면 나타나요.",
+   "active1st": true
+  },
+  {
+   "no": 44,
+   "id": "svm",
+   "kind": "quiz",
+   "name": "빙글눈",
+   "type": "eye",
+   "rarity": 1,
+   "quiz": {
+    "q": "기어를 어디로 바꾸면 서라운드 뷰 모니터가 저절로 켜질까요?",
+    "choices": [
+     "P",
+     "R",
+     "D"
+    ],
+    "answer": 1
+   },
+   "back": {
+    "where": "주차/뷰 버튼 또는 앱스 › 카메라 뷰 앱",
+    "how": "P·N에서, 또는 D로 10 km/h보다 느릴 때 켤 수 있어요. R로 바꾸면 자동으로 켜져요.",
+    "goodDay": "좁은 곳에 주차할 때",
+    "note": "차종·사양에 따라 다를 수 있어요.",
+    "source": {
+     "url": "https://ownersmanual.hyundai.com/full_webhelp/GN7/2027/ko_KR/adas-svm-op.html",
+     "section": "서라운드 뷰 모니터 작동",
+     "model": "더 뉴 그랜저 2027 취급설명서"
+    }
+   },
+   "riddle": "설명서 퀴즈를 맞히면 나타나요.",
+   "active1st": true
+  },
+  {
+   "no": 45,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 46,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 47,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 48,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 49,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 50,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 51,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 52,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 53,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 54,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 55,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 56,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 57,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 58,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 59,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 60,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 61,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 62,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 63,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 64,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 65,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 66,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 67,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 68,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 69,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 70,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 71,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 72,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 73,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 74,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 75,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 76,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 77,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 78,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 79,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 80,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 81,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 82,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 83,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 84,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 85,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 86,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 87,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 88,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 89,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 90,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 91,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 92,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 93,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 94,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 95,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 96,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 97,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 98,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 99,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  },
+  {
+   "no": 100,
+   "kind": "quiz",
+   "reserved": true,
+   "active1st": false
+  }
+ ]
+}

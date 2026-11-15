@@ -1,0 +1,14 @@
+<resources>
+    <color name="upet_bg">#0D0F12</color>
+    <color name="upet_surface_1">#16191E</color>
+    <color name="upet_surface_2">#1F2329</color>
+    <color name="upet_text_1">#F3F4F6</color>
+    <color name="upet_text_2">#A3AAB4</color>
+    <color name="upet_text_3">#8B939E</color>
+    <color name="upet_accent">#5B9BFF</color>
+    <color name="upet_caution">#FFB547</color>
+    <color name="upet_line">#14FFFFFF</color>
+    <color name="upet_on_primary">#0D0F12</color>
+    <color name="upet_pet_shadow">#73000000</color>
+    <color name="upet_parked">#3DDC84</color>
+</resources>

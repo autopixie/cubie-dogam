@@ -1,0 +1,12 @@
+<resources>
+    <color name="upet_pet_body_start">#F7EEE2</color>
+    <color name="upet_pet_body_middle">#E6D3BC</color>
+    <color name="upet_pet_body_end">#C9AE8E</color>
+    <color name="upet_pet_rest_start">#D9D0C4</color>
+    <color name="upet_pet_rest_middle">#BFB09D</color>
+    <color name="upet_pet_rest_end">#9D8C76</color>
+    <color name="upet_pet_ink">#1A1D22</color>
+    <color name="upet_shadow_1">#14000000</color>
+    <color name="upet_shadow_2">#29000000</color>
+    <color name="upet_shadow_3">#3D000000</color>
+</resources>
